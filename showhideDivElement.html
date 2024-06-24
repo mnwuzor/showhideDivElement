@@ -1,0 +1,146 @@
+
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<!-- summernote -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet"> 
+	 
+	<!-- HideShow Div -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+	
+	<style> 
+		.hideDiv { 
+			display: none; 
+			justify-content: center; 
+		} 
+
+		.button-container { 
+			display: inline; 
+			justify-content: center; 
+			margin-top: 20px; 
+		} 
+		.clickbutton {
+		  background-color: red;
+		  border: none;
+		  color: white;
+		  padding: 5px 5px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 14px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		}	
+		.buttonRed{
+			background-color: #f44336;
+			}	
+		.buttonRed:hover{
+			background-color: #f44336;
+			color: white;
+			} 
+	</style> 
+</head> 
+
+<body> 
+
+First I will start by thanking <a href="https://www.geeksforgeeks.org/how-to-show-hide-an-element-using-jquery/" target="_blank"> <b>Geeks For Geeks</b> for their tips on How to show/hide an element using jQuery</a>
+
+<br><br><br>
+
+					<div class="col-xl-4 col-lg-4 col-md-6">
+                      <div class="group-from">
+                        <label class="form-label" for="itemheads">Head<span style="color:red;">*</span></label>					
+						<select class="form-control basic-select" name="itemheads" id="itemheads" required="" style="border: #CCC thin solid !important; background-color: white; color:#000000">
+						<option value="">Select Head</option>
+						<option value="Head 1">Head 1</option>
+						<option value="Head 2">Head 2</option>
+						<option value="Head 3">Head 3</option>
+						</select>
+                      </div>
+                    </div>
+
+					<div class="col-xl-5 col-lg-4 col-md-6">
+                      <div class="group-from">
+                        <label class="form-label" for="itemsubheads">Sub Head<span style="color:red;">*</span></label>
+						<select class="form-control basic-select" name="itemsubheads" id="itemsubheads" required="" style="border: #CCC thin solid !important; background-color: white; color:#000000">
+						<option value="">Select Head</option>
+						<option value="Sub-Head 1">Sub-Head 1</option>
+						<option value="Sub-Head 2">Sub-Head 2</option>
+						<option value="Sub-Head 3">Sub-Head 3</option>
+						</select>
+                      </div>
+                    </div>
+					
+					<div class="col-md-2">
+                    <div class="form-group">
+                      <label class="form-label" for="amnt">Amount<span style="color:red;">*</span></label>
+                      <div class="input-group"><span class="input-group-text bg-primary" style="color:#FFF">$</span>
+                        <input class="form-control number" name="amnt" id="amnt" type="text" placeholder="Enter amount" value="0.00" min="0.00" max="10000000000000.00" step="0.01" required="" style="border: #CCC thin solid !important; background-color: white; color:#000000">
+                      </div>					  
+                    </div>
+                    </div>
+
+
+                        <label class="form-label" for="receipt">Insert Receipt/Invoice</label>  <div class="button-container"> <span style="background-color: text-primary" class="btn btn primary clickbutton buttonRed hover" id="click">Yes</span> </div>
+						<div class="hideDiv" id="element"> 
+						<textarea name="receipt" id="receipt" class="form-control" style="height: 500px; font-size:14px; text-align:left; border: #0d3e5e thin solid !important; outline-color:#0d3e5e! important; color:#000000! important; background-color: white;" required="required"></textarea>	
+						</div>		
+	<script> 
+		$('#click').on('click', function () { 
+			if ($('#click').text() === 'No! Hide Box') { 
+
+				// This block is executed when 
+				// you click the show button 
+				$('#click').text('Show'); 
+				$('#element').css('display', 'none'); 
+			} 
+			else { 
+
+				// This block is executed when 
+				// you click the hide button 
+				$('#click').text('No! Hide Box'); 
+				$('#element').css('display', 'inline'); 
+			} 
+		}); 
+	</script> 
+	
+	  <!-- Summernote -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>	
+	<script>
+      $('#receipt').summernote({
+        placeholder: 'Please Insert Receipt/Invoice here',
+        tabsize: 2,
+        height: 300,
+        toolbar: [
+          //['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+		  ['insert', ['picture']],
+          //['insert', ['link', 'picture', 'video']],
+          //['view', ['fullscreen', 'codeview', 'help']]
+        ],
+		tableClassName: function()
+		{
+        $(this).addClass('table table-bordered')
+
+        .attr('cellpadding', 12)
+        .attr('cellspacing', 0)
+        .attr('border', 1)
+        .css('borderCollapse', 'collapse');
+
+        $(this).find('td')
+        .css('borderColor', '#CCC')
+        .css('padding', '5px')
+		.css('color', '#000');
+		},
+      });
+	  
+	  $('.note-editable').css('color','#000000');
+	</script>	
+</body> 
+
+</html>
