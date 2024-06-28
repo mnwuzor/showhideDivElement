@@ -57,3 +57,10 @@ It's quite easy to use. Simply edit the code below to suit your need
 	</style> 
 
 The easiest way to understand how to use it is to first use it the way it and then make changes line by line. A knowldge of JavaScript and CSS will be needed here though.
+
+![ShowHideDivDemo](https://github.com/mnwuzor/showhideDivElement/assets/5221842/90080455-b118-4787-bef9-6693573689bb)
+
+The GIF above shows how the Hide/Show Div element works. But by defaults, the div is hidden on page load.
+
+I hope this helps someone
+
